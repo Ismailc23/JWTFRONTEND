@@ -1,0 +1,40 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top :30px;">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img src="../../../assets/logo_room (1).png" alt="" />
+                </div>
+                <h1 class="text-center">Register Here !!</h1>
+                <form (ngSubmit)="formSubmit()">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input
+                        [(ngModel)]="registerUserDto.email"
+                        name="email"
+                        matInput placeholder="Enter the mail">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input 
+                        [(ngModel)]="registerUserDto.password"
+                        name="password"
+                        type="password" matInput placeholder="Enter the password">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Full Name</mat-label>
+                        <input 
+                        [(ngModel)]="registerUserDto.fullName"
+                        name="fullName"
+                        matInput placeholder="Enter the full name">
+                    </mat-form-field>
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
