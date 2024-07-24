@@ -31,10 +31,10 @@ export class LoginComponent implements OnInit {
             console.log(user);
             if(this.loginService.getUserRole()=="ADMIN")
             {
-              this.router.navigate(['admin'])
+              this.router.navigate(['admin']);
             }
             else if(this.loginService.getUserRole()=="USER") {
-              this.router.navigate(['user-dashboard'])
+              this.router.navigate(['user-dashboard']);
             }
             else{
               this.loginService.logout();
