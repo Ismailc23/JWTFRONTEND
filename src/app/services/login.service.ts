@@ -9,64 +9,55 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  public getCurrentUser()
-  {
+  public getCurrentUser() {
     return this.http.get(`${baseUrl}/users/current-user`);
   }
 
-  public loginGenerateToken(loginUserDto){
+  public loginGenerateToken(loginUserDto) {
     return this.http.post(`${baseUrl}/auth/login`,loginUserDto);
   }
 
-  public loginUser(token){
+  public loginUser(token) {
     localStorage.setItem("token",token);
     return true;
   }
 
-  public isLoggedIn()
-  {
+  public isLoggedIn() {
     let tokenStr=localStorage.getItem("token");
-    if(tokenStr==undefined || tokenStr=="" || tokenStr==null)
-    {
+    if(tokenStr==undefined || tokenStr=="" || tokenStr==null) {
       return false;
     }
-    else{
+    else {
       return true;
     }
   }
 
-  public logout()
-  {
+  public logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user")
     return true;
   }
 
-  public getToken()
-  {
+  public getToken() {
     return localStorage.getItem("token");
   }
 
-  public setUser(user)
-  {
+  public setUser(user) {
     localStorage.setItem("user",JSON.stringify(user));
   }
 
-  public getUser()
-  {
+  public getUser() {
     let userStr=localStorage.getItem("user");
-    if(userStr!=null)
-    {
+    if(userStr!=null) {
       return JSON.parse(userStr);
     }
-    else{
+    else {
       this.logout();
       return null;
     }
   }
 
-  public getUserRole()
-  {
+  public getUserRole() {
     let user=this.getUser();
     return user.roles[0].name;
   }
