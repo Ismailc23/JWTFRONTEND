@@ -22,13 +22,10 @@ export class LoginComponent implements OnInit {
     console.log("login btn clicked");
     this.loginService.loginGenerateToken(this.loginUserDto).subscribe(
       (data:any)=>{
-        console.log("success");
-        console.log(data);
         this.loginService.loginUser(data.token);
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{
             this.loginService.setUser(user);
-            console.log(user);
             if(this.loginService.getUserRole()=="ADMIN") {
               this.router.navigate(['admin']);
             }
@@ -42,7 +39,6 @@ export class LoginComponent implements OnInit {
         )
       },
       (error)=>{
-        console.log("Error !");
         console.log(error);
       }
     )
