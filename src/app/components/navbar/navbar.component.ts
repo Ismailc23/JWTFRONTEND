@@ -10,13 +10,10 @@ export class NavbarComponent implements OnInit {
 
   constructor(public loginService:LoginService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  public logout()
-  {
+  public logout() {
     this.loginService.logout();
     window.location.reload();
   }
-
 }

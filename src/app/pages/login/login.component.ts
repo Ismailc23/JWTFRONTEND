@@ -29,14 +29,13 @@ export class LoginComponent implements OnInit {
           (user:any)=>{
             this.loginService.setUser(user);
             console.log(user);
-            if(this.loginService.getUserRole()=="ADMIN")
-            {
+            if(this.loginService.getUserRole()=="ADMIN") {
               this.router.navigate(['admin']);
             }
             else if(this.loginService.getUserRole()=="USER") {
               this.router.navigate(['user-dashboard']);
             }
-            else{
+            else {
               this.loginService.logout();
             }
           }
@@ -48,5 +47,4 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
 }
