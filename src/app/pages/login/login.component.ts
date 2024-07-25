@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log("login btn clicked");
     this.loginService.loginGenerateToken(this.loginUserDto).subscribe(
       (data:any)=>{
         this.loginService.loginUser(data.token);
