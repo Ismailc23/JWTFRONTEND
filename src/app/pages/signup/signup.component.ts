@@ -21,7 +21,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log(this.registerUserDto);
     this.userService.adduser(this.registerUserDto).subscribe(
       (data:any) => {
         Swal.fire("Success","Signed up succesfully", "success")
