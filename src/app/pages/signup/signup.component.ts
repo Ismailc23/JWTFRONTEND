@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['login'])
       },
       (error) => {
-        console.log(error);
         this.snack.open("Something went wrong !!",'',{
           duration:3000
         })

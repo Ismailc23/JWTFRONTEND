@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             else if(this.loginService.getUserRole()=="USER") {
               this.router.navigate(['customer-form'])
             }
-            else{
+            else {
               this.loginService.logout();
             }
           }
@@ -43,5 +43,4 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
 }
