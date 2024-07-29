@@ -8,14 +8,14 @@
                     </div>
                     <h1 class="text-center">Fill the Room details !!</h1>
                     {{room | json}}
-                    <form>
+                    <form (ngSubmit)="formSubmit()">
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Room Number</mat-label>
                             <input
                             required
                             [(ngModel)]="room.roomNumber"
                             name="roomNumber"
-                            matInput placeholder="Enter the first name">
+                            matInput placeholder="Enter the Room number">
                         </mat-form-field>
 
                         <mat-form-field class="full-width" appearance="fill">
@@ -24,7 +24,7 @@
                             required
                             [(ngModel)]="room.price"
                             name="price"
-                            matInput placeholder="Enter the last name">
+                            matInput placeholder="Enter the price">
                         </mat-form-field>
                         
                         <mat-form-field class="full-width" appearance="fill">
@@ -33,7 +33,7 @@
                             required
                             [(ngModel)]="room.type"
                             name="type"                              
-                            matInput placeholder="Enter the dob">
+                            matInput placeholder="Enter the type">
                         </mat-form-field>
                         
 
@@ -43,7 +43,7 @@
                             required
                             [(ngModel)]="room.description"
                             name="description"
-                            matInput placeholder="Enter the email">
+                            matInput placeholder="Enter the description">
                         </mat-form-field>
 
                         <mat-form-field class="full-width" appearance="fill">
@@ -52,7 +52,7 @@
                             required
                             [(ngModel)]="room.photoUrl"
                             name="photoUrl"
-                            matInput placeholder="Enter the email">
+                            matInput placeholder="Enter the photo url">
                         </mat-form-field>
                         <div class="container text-center">
                             <button type="submit" mat-raised-button color="primary">Submit</button>

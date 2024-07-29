@@ -1,0 +1,53 @@
+.bootstrap-wrapper {
+    margin-top: 30px;
+  }
+  
+  .mat-card {
+    margin-bottom: 20px;
+  }
+  
+  .room-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .room-card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .room-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 5px;
+  }
+  
+  .room-details {
+    flex: 1;
+  }
+  
+  .room-details h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .room-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+  
+  .no-rooms {
+    text-align: center;
+    color: #d9534f;
+  }
+  

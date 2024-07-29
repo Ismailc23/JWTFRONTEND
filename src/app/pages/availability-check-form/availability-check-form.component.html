@@ -1,0 +1,28 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/logo_room (1).png" alt="" />
+            </div>
+            <h1 class="text-center">Check the rooms</h1>
+            <form (ngSubmit)="checkAvailability()">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Stay Start Date</mat-label>
+                <input type="date" required [(ngModel)]="stayStartDate" name="stayStartDate" matInput placeholder="Enter the check-in date">
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Stay End date</mat-label>
+                <input type="date" required [(ngModel)]="stayEndDate" name="stayEndDate" matInput placeholder="Enter the check-out date">
+              </mat-form-field>
+              <div class="container text-center">
+                <button mat-raised-button color="primary" type="submit">Check</button>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouteReuseStrategy } from '@angular/router';
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
@@ -18,7 +19,7 @@ export class CustomerFormComponent implements OnInit {
 
   ageError: string = '';
 
-  constructor(private customerService:CustomerService,private snack:MatSnackBar) { }
+  constructor(private customerService:CustomerService,private snack:MatSnackBar,private router:Router) { }
 
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class CustomerFormComponent implements OnInit {
       (data:any) => {
         Swal.fire("Success","Customer added Successfully", "success")
         sessionStorage.setItem('customerId', data.customerId);
+        this.router.navigate(['availability-check-form'])
       },
       (error) => {
         console.log(error);

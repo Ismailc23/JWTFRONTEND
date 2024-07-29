@@ -21,6 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
+import { AvailabilityCheckFormComponent } from './pages/availability-check-form/availability-check-form.component';
+import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CustomerFormComponent } from './pages/customer-form/customer-form.compo
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    AvailabilityCheckFormComponent,
+    AvailableRoomsComponent
   ],
   imports: [
     BrowserModule,
