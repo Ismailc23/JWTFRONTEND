@@ -5,9 +5,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { combineLatest } from 'rxjs';
-import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
+import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
 
 const routes: Routes = [
   {
@@ -32,8 +32,8 @@ const routes: Routes = [
     canActivate:[AdminGuard]
   },
   {
-    path:'user-dashboard',
-    component:UserDashboardComponent,
+    path:'customer-form',
+    component:CustomerFormComponent,
     pathMatch:'full',
     canActivate:[UserGuard]
   },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,8 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  constructor(private userService: UserService, private snack:MatSnackBar) { }
+  constructor(private userService: UserService, private snack:MatSnackBar,private router:Router) {}
 
   public registerUserDto = {
     email: '',
@@ -21,11 +21,10 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log(this.registerUserDto);
-    this.userService.adduser(this.registerUserDto).subscribe(
+      this.userService.adduser(this.registerUserDto).subscribe(
       (data:any) => {
-        console.log(data);
         Swal.fire("Success","Signed up succesfully", "success")
+        this.router.navigate(['login'])
       },
       (error) => {
         console.log(error);

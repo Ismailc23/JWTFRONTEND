@@ -5,11 +5,12 @@ import baseUrl from './helper';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class RoomService {
 
   constructor(private http: HttpClient) { }
 
-  public adduser(registerUserDto: any) {
-    return this.http.post(`${baseUrl}/auth/registrationMethod`, registerUserDto);
+  public addRoom(room: any) {
+    console.log("Inside addcustomer");
+    return this.http.post(`${baseUrl}/request/api/room`, room);
   }
 }

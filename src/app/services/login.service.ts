@@ -15,7 +15,7 @@ export class LoginService {
   }
 
   public loginGenerateToken(loginUserDto){
-    return this.http.post(`${baseUrl}/auth/login`,loginUserDto);
+    return this.http.post(`${baseUrl}/auth/loginMethod`,loginUserDto);
   }
 
   public loginUser(token){
@@ -38,7 +38,8 @@ export class LoginService {
   public logout()
   {
     localStorage.removeItem("token");
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("customerId");
     return true;
   }
 

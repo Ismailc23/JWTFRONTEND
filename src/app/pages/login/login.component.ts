@@ -19,22 +19,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log("login btn clicked");
     this.loginService.loginGenerateToken(this.loginUserDto).subscribe(
       (data:any)=>{
-        console.log("success");
-        console.log(data);
         this.loginService.loginUser(data.token);
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{
             this.loginService.setUser(user);
-            console.log(user);
             if(this.loginService.getUserRole()=="ADMIN")
-            {
+            { 
               this.router.navigate(['admin'])
             }
             else if(this.loginService.getUserRole()=="USER") {
-              this.router.navigate(['user-dashboard'])
+              this.router.navigate(['customer-form'])
             }
             else{
               this.loginService.logout();
@@ -43,7 +39,6 @@ export class LoginComponent implements OnInit {
         )
       },
       (error)=>{
-        console.log("Error !");
         console.log(error);
       }
     )
