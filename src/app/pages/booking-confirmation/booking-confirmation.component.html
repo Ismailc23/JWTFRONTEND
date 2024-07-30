@@ -1,0 +1,21 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-8 offset-md-2">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/logo_room (1).png" alt="Logo" />
+            </div>
+            <h1 class="text-center">Booking Confirmation</h1>
+            <div class="text-center">
+                <h2>Room Number: {{ roomNumber }}</h2>
+                <h3>Stay Start Date: {{ stayStartDate }}</h3>
+                <h3>Stay End Date: {{ stayEndDate }}</h3>
+                <button mat-raised-button color="primary" (click)="bookAnotherRoom()">Book Another Room</button>
+            </div>
+           </mat-card>
+        </div>
+      </div>
+    </div>
+</div>
+  

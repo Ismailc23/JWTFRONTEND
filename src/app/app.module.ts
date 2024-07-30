@@ -27,6 +27,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     CustomerFormComponent,
     AvailabilityCheckFormComponent,
-    AvailableRoomsComponent
+    AvailableRoomsComponent,
+    BookingConfirmationComponent
   ],
   imports: [
     BrowserModule,

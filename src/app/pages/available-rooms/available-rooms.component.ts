@@ -40,6 +40,30 @@ export class AvailableRoomsComponent implements OnInit {
       );
     });
   }
+
+  bookRoom(roomNumber: number) {
+    const customerId = sessionStorage.getItem('customerId');
+    if (!customerId) {
+      console.error('Customer ID not found in session storage');
+      return;
+    }
+
+    const booking = {
+      stayStartDate: this.stayStartDate,
+      stayEndDate: this.stayEndDate
+    };
+
+    this.http.post(`${baseUrl}/api/customers/${customerId}/${roomNumber}`, booking).subscribe(
+      (response) => {
+        console.log('Booking successful', response);
+        this.router.navigate(['/booking-confirmation'], { queryParams: { roomNumber, ...booking } });
+      },
+      (error) => {
+        console.error('Error creating booking', error);
+      }
+    );
+  }
+
   goBack() {
     this.router.navigate(['/availability-check-form']);
   }

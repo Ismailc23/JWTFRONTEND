@@ -17,7 +17,7 @@
                     <p>Description: {{ room.description }}</p>
                   </div>
                   <div class="room-actions">
-                    <button mat-raised-button color="primary">Book Now</button>
+                    <button mat-raised-button color="primary" (click)="bookRoom(room.roomNumber)">Book Now</button>
                   </div>
                 </div>
               </div>

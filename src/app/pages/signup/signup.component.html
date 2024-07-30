@@ -23,7 +23,15 @@
                             required
                             [(ngModel)]="registerUserDto.password"
                             name="password"
-                            type="password" matInput placeholder="Enter the password">
+                            type="password" matInput placeholder="Enter the password"
+                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$"
+                            #password="ngModel"/>
+                            <mat-error *ngIf="password.invalid && password.touched">
+                                <span *ngIf="password.errors?.required">Password is required</span>
+                                <span *ngIf="password.errors?.pattern">
+                                  Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character
+                                </span>
+                              </mat-error>
                         </mat-form-field>
                         
                         <mat-form-field class="full-width" appearance="fill">

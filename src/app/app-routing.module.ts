@@ -9,6 +9,7 @@ import { UserGuard } from './services/user.guard';
 import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
 import { AvailabilityCheckFormComponent } from './pages/availability-check-form/availability-check-form.component';
 import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms.component';
+import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,11 @@ const routes: Routes = [
   {
     path:'available-rooms',
     component:AvailableRoomsComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'booking-confirmation',
+    component:BookingConfirmationComponent,
     pathMatch:'full'
   }
 ];
