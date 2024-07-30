@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     password:''
   }
 
-  constructor(private loginService:LoginService,private router:Router) { }
+  constructor(private loginService:LoginService,private router:Router,private snack:MatSnackBar) { }
 
   ngOnInit(): void {}
 
@@ -39,7 +40,15 @@ export class LoginComponent implements OnInit {
         )
       },
       (error)=>{
-        console.log(error);
+        if (error === 'Invalid credentials provided') {
+          this.snack.open("Invalid credentials provided",'', {
+            duration:5000
+          })
+        } else {
+          this.snack.open("Something went wrong !!", '', {
+            duration: 3000
+          });
+        }
       }
     )
   }

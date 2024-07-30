@@ -7,7 +7,7 @@
                         <img src="../../../assets/logo_room (1).png" alt="" />
                     </div>
                     <h1 class="text-center">Login Here !!</h1>
-                    <form (ngSubmit)="formSubmit()">
+                    <form (ngSubmit)="formSubmit()" #loginForm="ngForm">
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Email</mat-label>
                             <input
@@ -26,7 +26,7 @@
                             matInput placeholder="Enter the mail">
                         </mat-form-field>
                         <div class="container text-center">
-                            <button mat-raised-button color="primary" type="submit">Login</button>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
                         </div>
                     </form>
                 </mat-card>

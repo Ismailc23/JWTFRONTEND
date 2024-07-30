@@ -7,7 +7,7 @@
                         <img src="../../../assets/logo_room (1).png" alt="" />
                     </div>
                     <h1 class="text-center">Fill the customer details !!</h1>
-                    <form (ngSubmit)="formSubmit()">
+                    <form (ngSubmit)="formSubmit()"  #customerForm="ngForm">
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>First Name</mat-label>
                             <input
@@ -48,7 +48,7 @@
                             matInput placeholder="Enter the email">
                         </mat-form-field>
                         <div class="container text-center">
-                            <button type="submit" mat-raised-button color="primary">Submit</button>
+                            <button type="submit" mat-raised-button color="primary" [disabled]="customerForm.invalid">Submit</button>
                         </div>
                     </form>
                 </mat-card>

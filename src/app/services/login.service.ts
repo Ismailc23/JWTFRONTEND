@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './helper';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,15 @@ export class LoginService {
   }
 
   public loginGenerateToken(loginUserDto){
-    return this.http.post(`${baseUrl}/auth/loginMethod`,loginUserDto);
+    return this.http.post(`${baseUrl}/auth/loginMethod`,loginUserDto).pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if(error.status==400){
+      errorMessage='Invalid credentials provided';
+    }
+    return throwError(errorMessage);
   }
 
   public loginUser(token) {

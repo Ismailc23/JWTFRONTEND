@@ -23,6 +23,10 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
 import { AvailabilityCheckFormComponent } from './pages/availability-check-form/availability-check-form.component';
 import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
