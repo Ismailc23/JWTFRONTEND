@@ -38,6 +38,7 @@ export class CustomerUpdateComponent implements OnInit {
     console.log(this.customer);
     this.customerService.updateCustomer(this.customerId,this.customer).subscribe(
       (data:any) => {
+        console.log('Response data:', data);
         Swal.fire("Success","Customer Updated Successfully", "success")
         sessionStorage.setItem('customerName',data.firstName +' '+ data.lastName);
         this.router.navigate([`/customer-details/${data.customerId}`]);

@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-8 offset-md-2">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/logo_room (1).png" alt="Logo" />
+            </div>
+            <h1 class="text-center">Available Rooms</h1>
+            <div *ngIf="loading" class="loading-container">
+                <mat-spinner></mat-spinner>
+            </div>
+            <div *ngIf="!loading && rooms.length > 0">
+              <div class="room-card" *ngFor="let room of rooms">
+                <div class="room-card-content">
+                  <img src="{{room.photoUrl}}" alt="Room Image" class="room-image" />
+                  <div class="room-details">
+                    <h3>Room Number: {{ room.roomNumber }}</h3>
+                    <p>Type: {{ room.type }}</p>
+                    <p>Description: {{ room.description }}</p>
+                    <p>Price: {{room.price}}</p>
+                  </div>
+                  <div class="room-buttons">
+                    <button mat-raised-button color="primary" [routerLink]="['/room-update', room.roomNumber]">Update</button>
+                    <button mat-raised-button color="warn" (click)="deleteRoom(room.roomNumber)">Delete</button>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <div *ngIf="!loading && rooms.length === 0" class="no-rooms">
+              <h2>No available rooms</h2>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

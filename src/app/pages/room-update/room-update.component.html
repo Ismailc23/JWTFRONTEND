@@ -7,14 +7,15 @@
                         <img src="../../../assets/logo_room (1).png" alt="" />
                     </div>
                     <h1 class="text-center">Fill the Room details !!</h1>
-                    <form (ngSubmit)="formSubmit()" #roomForm="ngForm">
+                    <form (ngSubmit)="formSubmit()" #updateRoomForm="ngForm">
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Room Number</mat-label>
                             <input
                             required
                             [(ngModel)]="room.roomNumber"
                             name="roomNumber"
-                            matInput placeholder="Enter the Room number">
+                            matInput placeholder="Enter the Room number"
+                            readonly>
                         </mat-form-field>
 
                         <mat-form-field class="full-width" appearance="fill">
@@ -54,12 +55,9 @@
                             matInput placeholder="Enter the photo url">
                         </mat-form-field>
                         <div class="container text-center">
-                            <button type="submit" mat-raised-button color="primary" [disabled]="roomForm.invalid">Submit</button>
+                            <button type="submit" mat-raised-button color="primary" [disabled]="updateRoomForm.invalid">Submit</button>
                         </div>
                     </form>
-                    <div class="container text-center">
-                        <button mat-raised-button color="primary" style="margin-top: 10px;" routerLink="/room-list">View List of Rooms</button>
-                    </div>
                 </mat-card>
             </div>
         </div>

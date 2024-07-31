@@ -30,6 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
 import { CustomerDetailsComponent } from './pages/customer-details/customer-details.component';
 import { CustomerUpdateComponent } from './pages/customer-update/customer-update.component';
+import { RoomListComponent } from './pages/room-list/room-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { RoomUpdateComponent } from './pages/room-update/room-update.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { CustomerUpdateComponent } from './pages/customer-update/customer-update
     AvailableRoomsComponent,
     BookingConfirmationComponent,
     CustomerDetailsComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    RoomListComponent,
+    RoomUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { CustomerUpdateComponent } from './pages/customer-update/customer-update
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

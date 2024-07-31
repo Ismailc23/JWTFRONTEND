@@ -23,4 +23,12 @@ export class RoomService {
     }
     return throwError(errorMessage);
   }
+
+  updateRoom(roomNumber: number, room: any) {
+    return this.http.put(`${baseUrl}/request/api/room/${roomNumber}`, room);
+  }
+
+  getRoomByNumber(roomNumber:number){
+    return this.http.get(`${baseUrl}/request/api/room/${roomNumber}`)
+  }
 }

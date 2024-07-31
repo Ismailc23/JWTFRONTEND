@@ -12,6 +12,8 @@ import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms
 import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
 import { CustomerDetailsComponent } from './pages/customer-details/customer-details.component';
 import { CustomerUpdateComponent } from './pages/customer-update/customer-update.component';
+import { RoomListComponent } from './pages/room-list/room-list.component';
+import { RoomUpdateComponent } from './pages/room-update/room-update.component';
 
 const routes: Routes = [
   {
@@ -59,15 +61,28 @@ const routes: Routes = [
     pathMatch:'full',
     canActivate:[UserGuard]
   },
-  { path: 'customer-details/:id', 
+  { 
+    path: 'customer-details/:id', 
     component:CustomerDetailsComponent,
     pathMatch:'full',
     canActivate:[UserGuard]
  },
- { path: 'customer-update/:id', 
-  component: CustomerUpdateComponent,
-  pathMatch:'full',
-  canActivate:[UserGuard] }
+ { 
+   path: 'customer-update/:id', 
+   component: CustomerUpdateComponent,
+   pathMatch:'full',
+   canActivate:[UserGuard] 
+},
+{
+   path:'room-list',
+   component:RoomListComponent,
+   pathMatch:'full'
+},
+{
+  path:'room-update/:roomNumber',
+  component:RoomUpdateComponent,
+  pathMatch:'full'
+}
 ];
 
 @NgModule({
