@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
 import Swal from 'sweetalert2';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, RouteReuseStrategy } from '@angular/router';
+
 @Component({
-  selector: 'app-customer-form',
-  templateUrl: './customer-form.component.html',
-  styleUrls: ['./customer-form.component.css']
+  selector: 'app-customer-update',
+  templateUrl: './customer-update.component.html',
+  styleUrls: ['./customer-update.component.css']
 })
-export class CustomerFormComponent implements OnInit {
+export class CustomerUpdateComponent implements OnInit {
 
   customer={
     firstName:'',
@@ -16,13 +17,15 @@ export class CustomerFormComponent implements OnInit {
     email:'',
     dateOfBirth:''
   };
+  customerId: number;
 
   ageError: string = '';
 
   constructor(private customerService:CustomerService,private snack:MatSnackBar,private router:Router) { }
 
-
   ngOnInit(): void {
+    this.customerId = Number(sessionStorage.getItem('customerId'));
+    console.log("Customer Id : ",this.customerId);
   }
 
   formSubmit() {
@@ -33,10 +36,9 @@ export class CustomerFormComponent implements OnInit {
       return;
     }
     console.log(this.customer);
-    this.customerService.addCustomer(this.customer).subscribe(
+    this.customerService.updateCustomer(this.customerId,this.customer).subscribe(
       (data:any) => {
-        Swal.fire("Success","Customer added Successfully", "success")
-        sessionStorage.setItem('customerId', data.customerId);
+        Swal.fire("Success","Customer Updated Successfully", "success")
         sessionStorage.setItem('customerName',data.firstName +' '+ data.lastName);
         this.router.navigate([`/customer-details/${data.customerId}`]);
       },

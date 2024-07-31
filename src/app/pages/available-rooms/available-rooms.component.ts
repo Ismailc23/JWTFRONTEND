@@ -15,6 +15,7 @@ export class AvailableRoomsComponent implements OnInit {
   stayStartDate: string;
   stayEndDate: string;
   availableRooms: any[] = [];
+  loading: boolean = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private datePipe:DatePipe) { }
 
@@ -24,7 +25,7 @@ export class AvailableRoomsComponent implements OnInit {
       const rawEndDate = params['stayEndDate'];
       this.stayStartDate = this.datePipe.transform(new Date(rawStartDate), 'yyyy-MM-dd');
       this.stayEndDate = this.datePipe.transform(new Date(rawEndDate), 'yyyy-MM-dd');
-
+      this.loading = true;
       this.http.get<any[]>(`${baseUrl}/api/available-rooms`, {
         params: {
           stayStartDate: this.stayStartDate,
@@ -33,9 +34,11 @@ export class AvailableRoomsComponent implements OnInit {
       }).subscribe(
         (data) => {
           this.availableRooms = data;
+          this.loading = false;
         },
         (error) => {
           console.error('Error fetching available rooms', error);
+          this.loading = false;
         }
       );
     });
@@ -53,6 +56,7 @@ export class AvailableRoomsComponent implements OnInit {
       stayEndDate: this.stayEndDate
     };
 
+    console.log("Clicked book btn");
     this.http.post(`${baseUrl}/api/customers/${customerId}/${roomNumber}`, booking).subscribe(
       (response) => {
         console.log('Booking successful', response);

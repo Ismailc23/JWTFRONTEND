@@ -28,6 +28,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
+import { CustomerDetailsComponent } from './pages/customer-details/customer-details.component';
+import { CustomerUpdateComponent } from './pages/customer-update/customer-update.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { BookingConfirmationComponent } from './pages/booking-confirmation/booki
     CustomerFormComponent,
     AvailabilityCheckFormComponent,
     AvailableRoomsComponent,
-    BookingConfirmationComponent
+    BookingConfirmationComponent,
+    CustomerDetailsComponent,
+    CustomerUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { BookingConfirmationComponent } from './pages/booking-confirmation/booki
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

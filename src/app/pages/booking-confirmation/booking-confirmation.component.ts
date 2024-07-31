@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Session } from 'protractor';
 
 @Component({
   selector: 'app-booking-confirmation',
@@ -11,7 +12,8 @@ export class BookingConfirmationComponent implements OnInit {
   stayStartDate: string;
   stayEndDate: string;
   roomNumber: number;
-
+  customerName:String = sessionStorage.getItem('customerName');
+  
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

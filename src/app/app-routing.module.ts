@@ -10,6 +10,8 @@ import { CustomerFormComponent } from './pages/customer-form/customer-form.compo
 import { AvailabilityCheckFormComponent } from './pages/availability-check-form/availability-check-form.component';
 import { AvailableRoomsComponent } from './pages/available-rooms/available-rooms.component';
 import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
+import { CustomerDetailsComponent } from './pages/customer-details/customer-details.component';
+import { CustomerUpdateComponent } from './pages/customer-update/customer-update.component';
 
 const routes: Routes = [
   {
@@ -48,13 +50,24 @@ const routes: Routes = [
   {
     path:'available-rooms',
     component:AvailableRoomsComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate:[UserGuard]
   },
   {
     path:'booking-confirmation',
     component:BookingConfirmationComponent,
-    pathMatch:'full'
-  }
+    pathMatch:'full',
+    canActivate:[UserGuard]
+  },
+  { path: 'customer-details/:id', 
+    component:CustomerDetailsComponent,
+    pathMatch:'full',
+    canActivate:[UserGuard]
+ },
+ { path: 'customer-update/:id', 
+  component: CustomerUpdateComponent,
+  pathMatch:'full',
+  canActivate:[UserGuard] }
 ];
 
 @NgModule({

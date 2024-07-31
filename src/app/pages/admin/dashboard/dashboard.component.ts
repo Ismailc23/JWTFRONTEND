@@ -30,10 +30,15 @@ export class DashboardComponent implements OnInit {
         window.location.reload();
       },
       (error) => {
-        console.log(error);
-        this.snack.open("Something went wrong !!",'',{
-          duration:3000
-        })
+        if (error === 'Room already exist') {
+          this.snack.open("Room already exist",'', {
+            duration:5000
+          })
+        } else {
+          this.snack.open("Something went wrong !!", '', {
+            duration: 3000
+          });
+        }
       }
     );
   }

@@ -47,6 +47,7 @@ export class LoginService {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     sessionStorage.removeItem("customerId");
+    sessionStorage.removeItem("customerName")
     return true;
   }
 

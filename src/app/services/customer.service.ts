@@ -13,4 +13,12 @@ export class CustomerService {
     console.log("Inside addcustomer");
     return this.http.post(`${baseUrl}/request/api/customer`, customer);
   }
+
+  getCustomerById(id: number){
+    return this.http.get<any>(`${baseUrl}/request/api/customer/${id}`);
+  }
+
+  updateCustomer(id: number, customer: any) {
+    return this.http.put(`${baseUrl}/request/api/customer/${id}`, customer);
+  }
 }
