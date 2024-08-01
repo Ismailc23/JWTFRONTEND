@@ -19,8 +19,6 @@ export class CustomerUpdateComponent implements OnInit {
 
   customerId: number;
 
-  ageError: string = '';
-
   constructor(private customerService:CustomerService,private snack:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {

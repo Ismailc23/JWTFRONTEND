@@ -26,16 +26,11 @@
                         </mat-form-field>                       
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Date of Birth</mat-label>
-                            <input 
-                            required
-                            [(ngModel)]="customer.dateOfBirth"
-                            name="dateOfBirth"
-                            type="date"
-                            matInput placeholder="Enter the dob">
+                            <input matInput [matDatepicker]="dob" placeholder="Enter the dob"
+                            [(ngModel)]="customer.dateOfBirth" name="dateOfBirth" required>
+                            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                            <mat-datepicker #dob></mat-datepicker>
                         </mat-form-field>
-                        <div *ngIf="ageError" class="text-danger">
-                            {{ ageError }}
-                        </div>
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Email</mat-label>
                             <input 

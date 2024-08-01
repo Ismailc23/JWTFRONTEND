@@ -16,8 +16,6 @@ export class CustomerFormComponent implements OnInit {
     dateOfBirth:''
   };
 
-  ageError: string = '';
-
   constructor(private customerService:CustomerService,private snack:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void { }
