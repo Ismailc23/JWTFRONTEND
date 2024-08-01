@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { error } from 'console';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
 import baseUrl from 'src/app/services/helper';
 import Swal from 'sweetalert2';
@@ -13,21 +12,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-
   customer = {
-    
     firstName: '',
     lastName: '',
     email: '',
     dateOfBirth: ''
   };
   customerId: number;
-
-  constructor(private customerService: CustomerService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private snack: MatSnackBar,
-    private http:HttpClient) { }
+  
+  constructor(private customerService: CustomerService,private router:Router,private snack: MatSnackBar,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.customerId = Number(sessionStorage.getItem('customerId'));

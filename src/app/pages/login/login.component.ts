@@ -9,7 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginUserDto={
     email:'',
     password:''
@@ -26,8 +25,7 @@ export class LoginComponent implements OnInit {
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{
             this.loginService.setUser(user);
-            if(this.loginService.getUserRole()=="ADMIN")
-            { 
+            if(this.loginService.getUserRole()=="ADMIN"){ 
               this.router.navigate(['admin'])
             }
             else if(this.loginService.getUserRole()=="USER") {
@@ -39,12 +37,13 @@ export class LoginComponent implements OnInit {
           }
         )
       },
-      (error)=>{
+      (error) => {
         if (error === 'Invalid credentials provided') {
           this.snack.open("Invalid credentials provided",'', {
             duration:5000
           })
-        } else {
+        } 
+        else {
           this.snack.open("Something went wrong !!", '', {
             duration: 3000
           });

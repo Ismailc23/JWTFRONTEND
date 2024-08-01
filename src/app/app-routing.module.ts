@@ -76,12 +76,14 @@ const routes: Routes = [
 {
    path:'room-list',
    component:RoomListComponent,
-   pathMatch:'full'
+   pathMatch:'full',
+   canActivate:[AdminGuard]
 },
 {
   path:'room-update/:roomNumber',
   component:RoomUpdateComponent,
-  pathMatch:'full'
+  pathMatch:'full',
+  canActivate:[AdminGuard]
 }
 ];
 

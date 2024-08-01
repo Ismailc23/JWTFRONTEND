@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row" style="margin-top: 30px;">
         <div class="col-md-8 offset-md-2">
-          <mat-card>
+        <mat-card>
             <div class="container text-center">
               <img src="../../../assets/logo_room (1).png" alt="Logo" />
             </div>
@@ -13,12 +13,12 @@
                 <h2>Last Name : {{ customer.lastName }}</h2>
                 <h2>Date of Birth: {{ customer.dateOfBirth }}</h2>
             </div>
-           </mat-card>
-           <mat-card>
+        </mat-card>
+        <mat-card>
                 <button mat-raised-button color="accent" style="margin-right: 120px;" (click)="continue()">Continue</button>
                 <button mat-raised-button color="primary" style="margin-right: 120px;" (click)="navigateToUpdate()">Update</button>
                 <button mat-raised-button color="warn" (click)="deleteCustomer(customerId)">Delete</button>
-            </mat-card>
+        </mat-card>
         </div>
       </div>
     </div>

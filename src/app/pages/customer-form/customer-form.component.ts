@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, RouteReuseStrategy } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
   styleUrls: ['./customer-form.component.css']
 })
 export class CustomerFormComponent implements OnInit {
-
   customer={
     firstName:'',
     lastName:'',
@@ -21,9 +20,7 @@ export class CustomerFormComponent implements OnInit {
 
   constructor(private customerService:CustomerService,private snack:MatSnackBar,private router:Router) { }
 
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   formSubmit() {
     if (this.isUnderage(this.customer.dateOfBirth)) {
@@ -32,7 +29,6 @@ export class CustomerFormComponent implements OnInit {
         })
       return;
     }
-    console.log(this.customer);
     this.customerService.addCustomer(this.customer).subscribe(
       (data:any) => {
         Swal.fire("Success","Customer added Successfully", "success")
@@ -55,5 +51,4 @@ export class CustomerFormComponent implements OnInit {
     let age = today.getFullYear() - birthDate.getFullYear();
     return age < 18;
   }
-
 }

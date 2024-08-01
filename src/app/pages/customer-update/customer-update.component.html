@@ -16,7 +16,6 @@
                             name="firstName"
                             matInput placeholder="Enter the first name">
                         </mat-form-field>
-
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Last Name</mat-label>
                             <input 
@@ -24,8 +23,7 @@
                             [(ngModel)]="customer.lastName"
                             name="lastName"
                             matInput placeholder="Enter the last name">
-                        </mat-form-field>
-                        
+                        </mat-form-field>                       
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Date of Birth</mat-label>
                             <input 
@@ -38,7 +36,6 @@
                         <div *ngIf="ageError" class="text-danger">
                             {{ ageError }}
                         </div>
-
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Email</mat-label>
                             <input 

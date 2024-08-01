@@ -10,15 +10,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  constructor(private userService: UserService, private snack:MatSnackBar,private router:Router) {
-  }
-
-  public registerUserDto = {
+  registerUserDto = {
     email: '',
     password: '',
     fullName: ''
   };
+
+  constructor(private userService: UserService, private snack:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {}
 
@@ -28,10 +26,11 @@ export class SignupComponent implements OnInit {
         Swal.fire("Success","Signed up succesfully", "success")
         this.router.navigate(['login'])
       },
-      (error) =>  {
+      (error) => {
         if (error === 'Username already exists') {
           Swal.fire("Error", "Username already exists", "error");
-        } else {
+        } 
+        else {
           this.snack.open("Something went wrong !!", '', {
             duration: 3000
           });

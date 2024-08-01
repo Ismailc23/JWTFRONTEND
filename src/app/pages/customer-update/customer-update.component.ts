@@ -10,13 +10,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./customer-update.component.css']
 })
 export class CustomerUpdateComponent implements OnInit {
-
   customer={
     firstName:'',
     lastName:'',
     email:'',
     dateOfBirth:''
   };
+
   customerId: number;
 
   ageError: string = '';
@@ -25,17 +25,15 @@ export class CustomerUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerId = Number(sessionStorage.getItem('customerId'));
-    console.log("Customer Id : ",this.customerId);
   }
 
   formSubmit() {
     if (this.isUnderage(this.customer.dateOfBirth)) {
       this.snack.open("Customer must be 18 years or older",'',{
           duration:3000
-        })
+      })
       return;
     }
-    console.log(this.customer);
     this.customerService.updateCustomer(this.customerId,this.customer).subscribe(
       (data:any) => {
         console.log('Response data:', data);
@@ -44,7 +42,6 @@ export class CustomerUpdateComponent implements OnInit {
         this.router.navigate([`/customer-details/${data.customerId}`]);
       },
       (error) => {
-        console.log(error);
         this.snack.open("Something went wrong !!",'',{
           duration:3000
         })
@@ -58,5 +55,4 @@ export class CustomerUpdateComponent implements OnInit {
     let age = today.getFullYear() - birthDate.getFullYear();
     return age < 18;
   }
-
 }

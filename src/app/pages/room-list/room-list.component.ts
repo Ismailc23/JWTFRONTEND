@@ -29,23 +29,19 @@ export class RoomListComponent implements OnInit {
         this.loading = false;
       },
       (error) => {
-        console.error('Error fetching rooms:', error);
         this.loading = false;
       }
     );
   }
 
   deleteRoom(roomNumber:number) {
-    if(confirm("Are you sure you want to delete ? ")){
-      console.log("Inside deletion");
+    if(confirm("Are you sure you want to delete ? ")) {
       this.http.delete(`${baseUrl}/request/api/room/${roomNumber}`,{responseType:'text'}).subscribe(
-        response =>{
-          console.log("Room deleted succesfully : ",response)
+        response => {
           Swal.fire("Success","Room has been deleted Successfully", "success");
           window.location.reload();
         },
         error => {
-          console.log(error);
           this.snack.open("Something went wrong !!",'',{
             duration:3000
           })

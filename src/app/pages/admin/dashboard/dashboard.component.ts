@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   room={
     roomNumber:'',
     price:'',
@@ -34,7 +33,8 @@ export class DashboardComponent implements OnInit {
           this.snack.open("Room already exist",'', {
             duration:5000
           })
-        } else {
+        } 
+        else {
           this.snack.open("Something went wrong !!", '', {
             duration: 3000
           });

@@ -8,12 +8,11 @@ import { Session } from 'protractor';
   styleUrls: ['./booking-confirmation.component.css']
 })
 export class BookingConfirmationComponent implements OnInit {
-
   stayStartDate: string;
   stayEndDate: string;
   roomNumber: number;
   customerName:String = sessionStorage.getItem('customerName');
-  
+
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,5 +26,4 @@ export class BookingConfirmationComponent implements OnInit {
   bookAnotherRoom() {
     this.router.navigate(['/availability-check-form']);
   }
-
 }

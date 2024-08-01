@@ -11,7 +11,6 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class AvailableRoomsComponent implements OnInit {
-
   stayStartDate: string;
   stayEndDate: string;
   availableRooms: any[] = [];
@@ -19,7 +18,7 @@ export class AvailableRoomsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private datePipe:DatePipe) { }
 
- ngOnInit(): void {
+  ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const rawStartDate = params['stayStartDate'];
       const rawEndDate = params['stayEndDate'];
@@ -46,17 +45,10 @@ export class AvailableRoomsComponent implements OnInit {
 
   bookRoom(roomNumber: number) {
     const customerId = sessionStorage.getItem('customerId');
-    if (!customerId) {
-      console.error('Customer ID not found in session storage');
-      return;
-    }
-
     const booking = {
       stayStartDate: this.stayStartDate,
       stayEndDate: this.stayEndDate
     };
-
-    console.log("Clicked book btn");
     this.http.post(`${baseUrl}/api/customers/${customerId}/${roomNumber}`, booking).subscribe(
       (response) => {
         console.log('Booking successful', response);

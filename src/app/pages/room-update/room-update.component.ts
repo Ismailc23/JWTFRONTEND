@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./room-update.component.css']
 })
 export class RoomUpdateComponent implements OnInit {
-
   room={
     roomNumber:'',
     price:'',
@@ -52,9 +51,7 @@ export class RoomUpdateComponent implements OnInit {
             this.snack.open("Something went wrong !!", '', {
             duration: 3000
           });
-        }
-      
+      }
     );
   }
-
 }
