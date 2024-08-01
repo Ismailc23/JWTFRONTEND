@@ -51,7 +51,6 @@ export class AvailableRoomsComponent implements OnInit {
     };
     this.http.post(`${baseUrl}/api/customers/${customerId}/${roomNumber}`, booking).subscribe(
       (response) => {
-        console.log('Booking successful', response);
         this.router.navigate(['/booking-confirmation'], { queryParams: { roomNumber, ...booking } });
       },
       (error) => {

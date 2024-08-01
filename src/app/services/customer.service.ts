@@ -10,7 +10,6 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   public addCustomer(customer: any) {
-    console.log("Inside addcustomer");
     return this.http.post(`${baseUrl}/request/api/customer`, customer);
   }
 

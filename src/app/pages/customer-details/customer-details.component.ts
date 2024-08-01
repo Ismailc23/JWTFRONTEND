@@ -19,12 +19,11 @@ export class CustomerDetailsComponent implements OnInit {
     dateOfBirth: ''
   };
   customerId: number;
-  
+
   constructor(private customerService: CustomerService,private router:Router,private snack: MatSnackBar,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.customerId = Number(sessionStorage.getItem('customerId'));
-    console.log("Customer Id : ",this.customerId);
     this.getCustomerDetails();
   }
 
@@ -34,7 +33,6 @@ export class CustomerDetailsComponent implements OnInit {
         this.customer = data;
       },
       (error) => {
-        console.log(error);
         this.snack.open("Failed to load customer details!", '', { duration: 3000 });
         this.router.navigate(['customer-form'])
       }
@@ -51,17 +49,14 @@ export class CustomerDetailsComponent implements OnInit {
 
   deleteCustomer(id:number) {
     if(confirm("Are you sure you want to delete ? ")){
-      console.log("Inside deletion");
       this.http.delete(`${baseUrl}/request/api/customer/${id}`,{responseType:'text'}).subscribe(
         response =>{
-          console.log("customer deleted succesfully : ",response)
           Swal.fire("Success","Customer has been deleted Successfully", "success");
           sessionStorage.removeItem("customerId");
           sessionStorage.removeItem("customerName");
           this.router.navigate(['customer-form']);
         },
         error => {
-          console.log(error);
           this.snack.open("Something went wrong !!",'',{
             duration:3000
           })

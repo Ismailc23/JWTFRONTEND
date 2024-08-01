@@ -22,7 +22,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void { }
 
   formSubmit() {
-    console.log(this.room);
     this.roomService.addRoom(this.room).subscribe(
       (data:any) => {
         Swal.fire("Success","Room added Successfully", "success")
