@@ -52,7 +52,7 @@ export class RoomListComponent implements OnInit {
               'Room has been deleted successfully.',
               'success'
             );
-            this.fetchRooms(); // Refresh the room list
+            this.fetchRooms();
           },
           error => {
             this.snack.open("Something went wrong!", '', {
