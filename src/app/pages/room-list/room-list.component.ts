@@ -43,24 +43,24 @@ export class RoomListComponent implements OnInit {
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      this.http.delete(`${baseUrl}/request/api/room/${roomNumber}`, { responseType: 'text' }).subscribe(
-        response => {
-          Swal.fire(
-            'Deleted!',
-            'Room has been deleted successfully.',
-            'success'
-          );
-          this.fetchRooms(); // Refresh the room list
-        },
-        error => {
-          this.snack.open("Something went wrong!", '', {
-            duration: 3000
-          });
-        }
-      );
-    }
-  });
-}
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete(`${baseUrl}/request/api/room/${roomNumber}`, { responseType: 'text' }).subscribe(
+          response => {
+            Swal.fire(
+              'Deleted!',
+              'Room has been deleted successfully.',
+              'success'
+            );
+            this.fetchRooms(); // Refresh the room list
+          },
+          error => {
+            this.snack.open("Something went wrong!", '', {
+              duration: 3000
+            });
+          }
+        );
+      }
+    });
+  }
 }
