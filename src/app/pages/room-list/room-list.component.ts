@@ -35,18 +35,32 @@ export class RoomListComponent implements OnInit {
   }
 
   deleteRoom(roomNumber:number) {
-    if(confirm("Are you sure you want to delete ? ")) {
-      this.http.delete(`${baseUrl}/request/api/room/${roomNumber}`,{responseType:'text'}).subscribe(
+    Swal.fire({
+    title: 'Are you sure?',
+    text: "Action cannot be undone!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.http.delete(`${baseUrl}/request/api/room/${roomNumber}`, { responseType: 'text' }).subscribe(
         response => {
-          Swal.fire("Success","Room has been deleted Successfully", "success");
-          window.location.reload();
+          Swal.fire(
+            'Deleted!',
+            'Room has been deleted successfully.',
+            'success'
+          );
+          this.fetchRooms(); // Refresh the room list
         },
         error => {
-          this.snack.open("Something went wrong !!",'',{
-            duration:3000
-          })
+          this.snack.open("Something went wrong!", '', {
+            duration: 3000
+          });
         }
       );
     }
-  }
+  });
+}
 }

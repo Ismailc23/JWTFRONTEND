@@ -47,21 +47,35 @@ export class CustomerDetailsComponent implements OnInit {
     this.router.navigate([`/customer-update/${this.customerId}`]);
   }
 
-  deleteCustomer(id:number) {
-    if(confirm("Are you sure you want to delete ? ")){
-      this.http.delete(`${baseUrl}/request/api/customer/${id}`,{responseType:'text'}).subscribe(
-        response =>{
-          Swal.fire("Success","Customer has been deleted Successfully", "success");
-          sessionStorage.removeItem("customerId");
-          sessionStorage.removeItem("customerName");
-          this.router.navigate(['customer-form']);
-        },
-        error => {
-          this.snack.open("Something went wrong !!",'',{
-            duration:3000
-          })
-        }
-      );
-    }
+  deleteCustomer(id: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Action cannot be undone!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete(`${baseUrl}/request/api/customer/${id}`, { responseType: 'text' }).subscribe(
+          response => {
+            Swal.fire(
+              'Deleted!',
+              'Customer has been deleted successfully.',
+              'success'
+            );
+            sessionStorage.removeItem("customerId");
+            sessionStorage.removeItem("customerName");
+            this.router.navigate(['customer-form']);
+          },
+          error => {
+            this.snack.open("Something went wrong !!", '', {
+              duration: 3000
+            });
+          }
+        );
+      }
+    });
   }
 }
